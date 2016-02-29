@@ -10,3 +10,12 @@
 package 'httpd':
   action :install
 end
+
+service 'httpd':
+  action [ :enable, :start ]
+end
+
+cookbook_file "/var/www/home/index.html" do
+  source "index.html"
+  mode "0644"
+end
